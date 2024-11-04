@@ -331,21 +331,21 @@ const App: React.FC = () => {
     }, 3000);
   };
 
-  const moveToWishlist = async (product: any) => {
-    try {
-      // First remove from cart
-      await removeFromCart(product.productId);
-      // Then add to wishlist
-      await addToWishlist(product);
-      setSuccessMessage("Item successfully moved to wishlist from the cart.");
-    } catch (error) {
-      console.error("Error moving item to wishlist", error);
-      setSuccessMessage("An error occurred while moving the item to the wishlist.");
-    }
-    setTimeout(() => {
-          setSuccessMessage(null);
-        }, 3000);
-  };
+  // const moveToWishlist = async (product: any) => {
+  //   try {
+  //     // First remove from cart
+  //     await removeFromCart(product.productId);
+  //     // Then add to wishlist
+  //     await addToWishlist(product);
+  //     setSuccessMessage("Item successfully moved to wishlist from the cart.");
+  //   } catch (error) {
+  //     console.error("Error moving item to wishlist", error);
+  //     setSuccessMessage("An error occurred while moving the item to the wishlist.");
+  //   }
+  //   setTimeout(() => {
+  //         setSuccessMessage(null);
+  //       }, 3000);
+  // };
 
   const backgroundClass = useLocation().pathname === '/' ? 'homebackground' : 'App';
 
@@ -359,7 +359,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<ProductList />} />
         <Route path="/product/:id" element={<ProductsDetails addToCart={addToCart} addToWishlist={addToWishlist} />} />
-        <Route path="/cart" element={<Cart cartItems={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} moveToWishlist={moveToWishlist} />} />
+        <Route path="/cart" element={<Cart cartItems={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />} />
         <Route path="/wishlist" element={<Wishlist wishlistItems={wishlist} removeFromWishlist={removeFromWishlist} moveToCart={addToCart} />} />
       </Routes>
     </div>

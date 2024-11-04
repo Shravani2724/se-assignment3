@@ -156,8 +156,8 @@
 
 
 
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React  from 'react';
+// import { Link } from 'react-router-dom';
 
 interface CartItem {
   _id: string;
@@ -174,10 +174,10 @@ interface CartProps {
   cartItems: CartItem[];
   updateQuantity: (id: string, quantity: number) => void;
   removeFromCart: (id: string) => void;
-  moveToWishlist: (item: CartItem) => void;
+  // moveToWishlist: (item: CartItem) => void;
 }
 
-const Cart: React.FC<CartProps> = ({ cartItems, updateQuantity, removeFromCart, moveToWishlist }) => {
+const Cart: React.FC<CartProps> = ({ cartItems, updateQuantity, removeFromCart }) => {
 
   const handleQuantityChange = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
     const newQuantity = parseInt(e.target.value);
