@@ -48,7 +48,7 @@ This project is an e-commerce application built with React and Node.js, allowing
 
 This project was built using [Create React App](https://github.com/facebook/create-react-app) and features:
 - **Reusable Components**: Organized and reusable components for product listing, product details, cart, and wishlist.
-- **State Management**: React Context API for managing cart and wishlist states with persistent data using `localStorage`.
+- **State Management**: React Context API for managing cart and wishlist states with persistent data using `mongodb`.
 - **Product Search/Filter**: A search bar for filtering products by name and price.
 - **Navigation**: Smooth page navigation with React Router and meaningful URLs.
 - **Responsive Design**: A clean and user-friendly interface optimized for various devices.
