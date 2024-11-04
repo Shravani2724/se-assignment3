@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 // Define MongoDB connection URI
 const mongoURI = 'mongodb+srv://bommishettishravani:HDU1BVuaphTUThLP@shravcluster.8ngdp.mongodb.net/?retryWrites=true&w=majority';
-// mongodb+srv://bommishettishravani:<db_password>@shravcluster.8ngdp.mongodb.net/?retryWrites=true&w=majority&appName=ShravCluster
 
 // Connect to MongoDB
 const connectDB = async () => {
