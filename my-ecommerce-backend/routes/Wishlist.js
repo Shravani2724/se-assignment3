@@ -4,15 +4,7 @@ const WishlistItem = require('../models/WishlistItem');
 const Product = require('../models/Product');
 const router = express.Router();
 
-// Get all items in the wishlist
-// router.get('/', async (req, res) => {
-//     try {
-//         const wishlistItems = await WishlistItem.find().populate('productId');
-//         res.json(wishlistItems);
-//     } catch (error) {
-//         res.status(500).json({ message: 'Error fetching wishlist items', error });
-//     }
-// });
+
 
 router.get('/', async (req, res) => {
     try {
