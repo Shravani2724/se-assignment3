@@ -73,7 +73,7 @@ Ensure you have the following installed:
 1. Clone the repository and navigate to the backend folder:
 
    ```bash
-   git clone https://github.com/your-username/e-commerce-book-store.git
+   git clone https://github.com/ICSI518/assignment2-Shravani2724.git
    cd my-ecommerce-backend
 
 2. Install dependencies:
