@@ -1,0 +1,313 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color:black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* .homebackground{
+    background-image: url('/Users/varshithtaduru/Documents/assignment2-Shravani2724/my-ecommerce-fashion/src/assets/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  } */
+  
+  #root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #252525; /* Darker shade for the navbar */
+    padding: 1rem 30rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .header{
+    color: black;
+    box-shadow: 0 6px 16px rgba(350, 350, 350, 0.8);
+  }
+  
+  .navbar li {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar li a:hover {
+    color: #00d4ff; /* Highlight effect on hover */
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #00d4ff;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #00d4ffaa); /* Update with a neon glow effect */
+  }
+  
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  /* Container for the product list */
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 4fr); /* 4 items per row */
+    gap: 1rem; /* Space between the cards */
+    padding: 2rem 0;
+  }
+  
+  /* Card styles for product list */
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    height: 500px;
+    width: 250px;
+    color:white;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+  /* styling for card img*/
+  .card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    height: 300px;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    color: black;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: black;
+    margin-bottom: 1rem;
+  }
+  
+  .card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  .button {
+    background-color: green;
+    margin: 0 10px;
+    color: #1e1e1e;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    height:35px;
+  }
+  
+  .button:hover {
+    background-color: #00a3cc;
+    transform: translateY(-3px);
+  }
+  
+  .button:active {
+    transform: translateY(0);
+  }
+  
+  /* Cart and Wishlist */
+  .cart,
+  .wishlist {
+    background-color: white;
+    border-radius: 8px;
+    /* padding: 2em; */
+    padding: 20px;
+    margin-top: 30px;
+    text-align: left;
+    color:black;
+  }
+  
+  .cart h2,
+  .wishlist h2 {
+    font-size: 2rem;
+    color: darkblue;
+  }
+  
+  .cart .item,
+  .wishlist .item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+  }
+  
+  .cart .item:last-child,
+  .wishlist .item:last-child {
+    border-bottom: none;
+  }
+  
+  .cart .item h4,
+  .wishlist .item h4 {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  .cart .item .price,
+  .wishlist .item .price {
+    font-size: 1.1rem;
+    color: #ffd700;
+  }
+  
+  /* Footer (if needed) */
+  footer {
+    background-color: #252525;
+    color: #888;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .success-message {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: green;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+  }
+
+  .cart {
+    padding: 20px; /* padding for the cart container */
+  }
+  
+  .cart-item  {
+    display: flex; /* Flex to align image and details side by side */
+    margin-bottom: 20px; /* Space below each cart item */
+    padding: 15px; /* padding within each cart item */
+    border: 1px solid #ddd; /* border around each cart item */
+    border-radius: 5px; /* rounded corners */
+    background-color: #f9f9f9; /* background color */
+  }
+  
+  .cart-item img {
+    max-width: 100px; /* Set a max width for the item image */
+    margin-right: 15px; /* Space between image and text */
+  }
+  
+  .item-details {
+    flex: 1; /* Allow details to take the remaining space */
+  }
+  
+  .cart-total {
+    margin-top: 20px; /* Space above the total price section */
+    font-weight: bold; /* Make the total font bold */
+  }
+  
+  .cart-buttons button {
+    margin-right: 10px; /* Space between buttons */
+    background-color: green;
+  }
+
+  .wishlist {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+  }
+  
+  .wishlist-items {
+    display: flex; /* Use flexbox for wishlist items */
+    flex-direction: column; /* Stack items vertically */
+  }
+  @media (max-width: 600px) {
+    .wishlist-item {
+      margin-bottom: 15px; /* Adjust spacing for smaller screens */
+    }
+  }
+  .product{
+    display: contents;
+  }
+
+  .filters {
+    
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out the items */
+    padding: 1rem; /* Add some padding */
+    height: 30px;
+    border-bottom: 1px solid #ccc; /* Bottom border */
+  }
+  
+  .filters input {
+    margin-right: 1rem; /* Space between inputs */
+    padding: 0.5rem; /* Padding for input */
+    border: 1px solid #ccc; /* Input border */
+    border-radius: 4px; /* Rounded corners */
+    flex: 1; /* Make inputs take equal space */
+  }
+  
+  /* Optional: You can add a max-width to control the overall width of the inputs */
+  .filters input[type="text"],
+  .filters input[type="number"] {
+    max-width: 150px; /* Max width for inputs */
+  }
+  
+  
+  
+  
+  
+  
