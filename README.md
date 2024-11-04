@@ -23,36 +23,15 @@ npm run dev
 
 backend 
 
+npx express-generator --view=ejs my-ecommerce-backend
+
+cd ecommerce-backend
+npm install
+npm install axios
+
+
 node app.js
 server running on the port 5000
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
