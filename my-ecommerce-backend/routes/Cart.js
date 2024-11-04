@@ -4,15 +4,6 @@ const CartItem = require('../models/CartItem');
 const Product = require('../models/Product');
 const router = express.Router();
 
-// Get all items in the cart
-// router.get('/', async (req, res) => {
-//     try {
-//         const cartItems = await CartItem.find().populate('productId');
-//         res.json(cartItems);
-//     } catch (error) {
-//         res.status(500).json({ message: 'Error fetching cart items', error });
-//     }
-// });
 
 
 // Get all items in the cart
