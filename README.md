@@ -1,3 +1,98 @@
+
+frontend setup
+
+npx create-react-app my-ecommerce-fashion
+cd my-ecommerce-fashion
+
+configure api.ts file
+npm install axios react-router-dom
+
+Add environment variables
+REACT_APP_BACKEND_URL=http://localhost:5000/api
+
+To run the frontend run the following command
+npm run dev
+
+To build use below command
+npm run build
+
+
+Backend Setup
+
+Initialize a Node.js app:
+mkdir my-ecommerce-backend
+cd my-ecommerce-backend
+npm init -y
+npm install express mongoose dotenv cors jsonwebtoken bcryptjs body-parser
+
+Add environment variables
+MONGODB_URI=mongodb://mongo:27017/my-ecommerce
+JWT_SECRET=your_jwt_secret_key
+
+Backend to run use the below command
+node app.js
+
+caddySetup
+At the root of your project, create a file Caddyfile.
+
+Dockerization Setup
+Created docker file for frontend and backend.
+
+Run Docker Compose using the below command
+docker-compose up --build
+
+Frontend port:  http://localhost:3000
+Backend port: (http://localhost:5000)
+
+Deployment information
+- *Web Address*: https://ec2-18-119-69-17.us-east-2.compute.amazonaws.com
+- *EC2 Instance IP Address*: 18.119.69.17
+- Successfully initiated launch of instance (i-01e8bd7f64cec58d8)
+- DNS : ip-172-31-15-93.us-east-2.compute.internal
+Screenshot of Instance dashboard
+![alt text](image.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- # React + TypeScript + Vite
 created vite workspace
 do the below command for vite creation
@@ -17,7 +112,7 @@ push the changes by using the command git push -->
 
 
 
-frontend
+<!-- frontend
 
 npm run dev
 
@@ -183,4 +278,4 @@ export default tseslint.config({
     ...react.configs['jsx-runtime'].rules,
   },
 })
-```
+``` -->

@@ -222,12 +222,15 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import ProductList from './components/ProductsList';
 import ProductsDetails from './components/ProductsDetails';
 import Cart from './components/Cart';
 import Wishlist from './components/Wishlist';
 import Navbar from './components/Navbar';
+import Register from './components/Register';
+import Login from './components/Login';
+import Profile from './components/Profile';
 import './style.css';
 import api from './api';
 
@@ -235,6 +238,12 @@ const App: React.FC = () => {
   const [cart, setCart] = useState<any[]>([]);
   const [wishlist, setWishlist] = useState<any[]>([]);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [authToken, setAuthToken] = useState<string | null>(localStorage.getItem('token'));
+
+  
+    useEffect(() => {
+      setAuthToken(localStorage.getItem('token'));
+    }, []);
 
   // Fetch initial data for cart and wishlist from the backend
   useEffect(() => {
@@ -331,22 +340,6 @@ const App: React.FC = () => {
     }, 3000);
   };
 
-  // const moveToWishlist = async (product: any) => {
-  //   try {
-  //     // First remove from cart
-  //     await removeFromCart(product.productId);
-  //     // Then add to wishlist
-  //     await addToWishlist(product);
-  //     setSuccessMessage("Item successfully moved to wishlist from the cart.");
-  //   } catch (error) {
-  //     console.error("Error moving item to wishlist", error);
-  //     setSuccessMessage("An error occurred while moving the item to the wishlist.");
-  //   }
-  //   setTimeout(() => {
-  //         setSuccessMessage(null);
-  //       }, 3000);
-  // };
-
   const backgroundClass = useLocation().pathname === '/' ? 'homebackground' : 'App';
 
   return (
@@ -359,8 +352,29 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<ProductList />} />
         <Route path="/product/:id" element={<ProductsDetails addToCart={addToCart} addToWishlist={addToWishlist} />} />
-        <Route path="/cart" element={<Cart cartItems={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />} />
+        {/* <Route path="/cart" element={<Cart cartItems={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} />} /> */}
         <Route path="/wishlist" element={<Wishlist wishlistItems={wishlist} removeFromWishlist={removeFromWishlist} moveToCart={addToCart} />} />
+        {/* <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} /> */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login setAuthToken={setAuthToken} />} />
+        <Route
+          path="/"
+          element={authToken ? <ProductList /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/cart"
+          element={authToken ? <Cart cartItems={cart} updateQuantity={updateQuantity} removeFromCart={removeFromCart} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/wishlist"
+          element={authToken ? <Wishlist wishlistItems={wishlist} removeFromWishlist={removeFromWishlist} moveToCart={addToCart} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/profile"
+          // element={authToken ? <Profile /> : <Navigate to="/login" />}
+          element ={<Profile/>}
+        />
       </Routes>
     </div>
   );

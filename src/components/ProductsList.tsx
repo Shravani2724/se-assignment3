@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api'; // Import the API configuration file
+import { useNavigate } from 'react-router-dom';
 
 interface Product {
   _id: string; // Adjusted to match MongoDB's ObjectId type
@@ -16,10 +17,21 @@ const ProductsList: React.FC = () => {
   const [minPrice, setMinPrice] = useState<number | ''>('');
   const [maxPrice, setMaxPrice] = useState<number | ''>('');
 
+
+  //logout functionality
+  const navigate = useNavigate();
+
+  // Handle logout
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove the JWT token
+    navigate('/register'); // Redirect to the login page
+  };
+
   // Fetch products from the backend when the component mounts
   useEffect(() => {
     api.get('/products')
       .then(response => {
+        console.log(response);
         setProducts(response.data); // Set products from the backend response
       })
       .catch(error => console.error('Error fetching products:', error));
@@ -44,6 +56,7 @@ const ProductsList: React.FC = () => {
     const isPriceMatch = (minPrice === '' || product.price >= minPrice) && (maxPrice === '' || product.price <= maxPrice);
     return isNameMatch && isPriceMatch;
   });
+  
 
   return (
     <div className="product">
@@ -66,6 +79,7 @@ const ProductsList: React.FC = () => {
           value={maxPrice === '' ? '' : maxPrice}
           onChange={handleMaxPriceChange}
         />
+        <button onClick={handleLogout} className="logout-button">Logout</button>
       </div>
       <div className="product-list">
         {filteredProducts.map(product => (
