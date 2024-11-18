@@ -40,7 +40,7 @@
 //     setTimeout(() => {
 //       setSuccessMessage(null);
 //     }, 3000);
-//   };
+//   }; k
   
 //  // updation of quantity items
 //   const updateQuantity = (id: number, quantity: number) => {
